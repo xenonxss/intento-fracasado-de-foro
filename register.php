@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="./registerstyle.css">   
 </head>
 <body>
-    <form action="" method="post" id="form">
+    <form action="" class="formulario" method="post" id="form">
         <div id="form-items">
             
             <input type="text" name="correo" placeholder="Correo" required><br><br>
