@@ -1,12 +1,29 @@
 <?php
 include("database.php");
 if (isset($_GET["token"])) {
+    $ahora = time();
     $token = $_GET["token"];
     $sql = "SELECT * FROM users WHERE token = '" . $token . "'";
     $do = mysqli_query($link, $sql);
+
     if($do->num_rows > 0){
-        echo "Correctamente registrado y verificado!";
-        exit;
+        $sql = "UPDATE `users` SET `verify` = '1' WHERE `users`.`token` = '$token';";
+
+        if (mysqli_query($link, $sql)){
+            echo "Correctamente registrado y verificado!";
+            $sql = "UPDATE `users` SET `sincedate` = '$ahora' WHERE `users`.`token` = '$token';";
+
+            if (mysqli_query($link, $sql)){
+                echo 'si';
+            }
+            else{
+                echo mysqli_error($link);
+            }
+            exit;
+        }
+        else{
+            echo mysqli_error($link);
+        }
     }
 }
 if (isset($_POST["correo"])) {
@@ -15,17 +32,27 @@ if (isset($_POST["correo"])) {
     $clave = $_POST["pass"];
     $clave_r = $_POST["pass_r"];
     $token = generateRandomString(50);
+
     if ($clave == $clave_r) {
         $clave_encriptada = password_hash($clave, PASSWORD_DEFAULT);
         $ahora = time();
 
-        $sql = "INSERT INTO `users` (`id`, `user`, `correo`, `password`, `token`, `lastonline`) VALUES (NULL, '$correo', '$correo', '$clave_encriptada', '$token', '$ahora');";
-        if (mysqli_query($link, $sql)) {
-            if (enviarmail("Registrate en PORNHUB!", $correo, "Nah es coña, regitrate aqui <a href='http://localhost/foroxs/register.php?token=$token'>Pincha aqui :)</a>")) {
-            }
-            echo "Usuario registrado! Tienes que verificar tu mail...";
-            exit;
+        $sql = "SELECT * FROM `users` WHERE `correo`='$correo';";
+        if (mysqli_query($link, $sql)){
+            echo 'che pibe, ya estas registrado';
+
         }
+        else{
+            $sql = "INSERT INTO `users` (`id`, `user`, `correo`, `password`, `token`, `lastonline`) VALUES (NULL, '$correo', '$correo', '$clave_encriptada', '$token', '$ahora');";
+            if (mysqli_query($link, $sql)) {
+                if (enviarmail("Registrate en PORNHUB!", $correo, "Nah es coña, regitrate aqui <a href='http://localhost/foroxs/register.php?token=$token'>Pincha aqui :)</a>")) {
+                }
+                echo "Usuario registrado! Tienes que verificar tu mail...";
+                exit;
+            }
+        }
+
+        
     }
 }
 ?>
