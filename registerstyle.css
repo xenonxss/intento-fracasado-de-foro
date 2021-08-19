@@ -1,3 +1,7 @@
+:root {
+    --secundario: purple;
+}
+
 body {
     background-color: #2C2F33;
 }
@@ -12,6 +16,25 @@ body {
     border-radius: 20px;
 }
 
+.formulario button {
+    width: 100%;
+    font-size: 30px;
+    border: none;
+    background-color: var(--secundario);
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.formulario input {
+    font-size: 30px;
+    padding: 5px;
+    border: 2px solid var(--secundario);
+    border-radius: 10px;
+}
+
 .form-items {}
+
+.register-boton {}
 
 .register-boton {}
