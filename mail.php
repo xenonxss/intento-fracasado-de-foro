@@ -28,7 +28,3 @@ function enviarmail($asunto,$destinatario, $html){
 }
 
 ?>
-
-<h1>Hey, ¿te gustan los secretos?</h1>
-
-<h4>Aqui encontrarás uno --> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">pincha aqui</a></h4>
