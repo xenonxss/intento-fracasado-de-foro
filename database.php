@@ -1,4 +1,4 @@
-<?
+<?php
 $servername = "localhost";
 $database = "foroxs";
 $username = "root";
