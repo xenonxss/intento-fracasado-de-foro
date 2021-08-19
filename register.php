@@ -1,6 +1,7 @@
 <?php
     if(isset($_POST["correo"])){
         include("database.php");
+        include("mail.php");
         $correo = $_POST["correo"];
         $clave = $_POST["pass"];
         $clave_r = $_POST["pass_r"];
@@ -11,7 +12,8 @@
 
             $sql = "INSERT INTO `users` (`id`, `user`, `password`, `lastonline`) VALUES (NULL, '$correo', '$clave_encriptada', '$ahora');";
             if(mysqli_query($link, $sql)){
-                echo "Usuario registrado!";
+                if(enviarmail("Registrate en PORNHUB!",$correo, "Nah es coña, regitrate aqui <a href='shorturl.at/jCI34'>Pincha aqui :)</a>")){}
+                echo "Usuario registrado! Tienes que verificar tu mail...";
                 exit;
             }
         }
