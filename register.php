@@ -7,22 +7,20 @@ if (isset($_GET["token"])) {
     $sql = "SELECT * FROM users WHERE token = '" . $token . "'";
     $do = mysqli_query($link, $sql);
 
-    if($do->num_rows > 0){
+    if ($do->num_rows > 0) {
         $sql = "UPDATE `users` SET `verify` = '1' WHERE `users`.`token` = '$token';";
 
-        if (mysqli_query($link, $sql)){
+        if (mysqli_query($link, $sql)) {
             echo "Correctamente registrado y verificado!";
             $sql = "UPDATE `users` SET `sincedate` = '$ahora' WHERE `users`.`token` = '$token';";
 
-            if (mysqli_query($link, $sql)){
+            if (mysqli_query($link, $sql)) {
                 echo 'si';
-            }
-            else{
+            } else {
                 echo mysqli_error($link);
             }
             exit;
-        }
-        else{
+        } else {
             echo mysqli_error($link);
         }
     }
@@ -34,26 +32,24 @@ if (isset($_POST["correo"])) {
     $clave_r = $_POST["pass_r"];
     $token = generateRandomString(50);
 
-    function checkEmail($email) {
+    function checkEmail($email)
+    {
         $find1 = strpos($email, '@');
         $find2 = strpos($email, '.');
         return ($find1 !== false && $find2 !== false && $find2 > $find1);
-     }
+    }
 
-    if(checkEmail($correo)){
+    if (checkEmail($correo)) {
         $c = true;
         if ($clave == $clave_r) {
             $clave_encriptada = password_hash($clave, PASSWORD_DEFAULT);
             $ahora = time();
-    
+
             $sql = "SELECT * FROM `users` WHERE `correo`='$correo';";
             $do = mysqli_query($link, $sql);
-            if ($do->num_rows > 0){
+            if ($do->num_rows > 0) {
                 echo '<script>alert("Ya hay un usuario con este correo.")</script>';
-                
-               
-            }
-            else{
+            } else {
                 $sql = "INSERT INTO `users` (`id`, `user`, `correo`, `password`, `token`, `lastonline`) VALUES (NULL, '$correo', '$correo', '$clave_encriptada', '$token', '$ahora');";
                 if (mysqli_query($link, $sql)) {
                     if (enviarmail("Registrate en PORNHUB!", $correo, "Nah es coña, regitrate aqui <a href='http://localhost/foroxs/register.php?token=$token'>Pincha aqui :)</a>")) {
@@ -63,14 +59,10 @@ if (isset($_POST["correo"])) {
                 }
             }
         }
-    }
-    else{
+    } else {
         echo 'el correo no es valido';
         $c = false;
-
     }
-
-    
 }
 ?>
 
@@ -83,17 +75,23 @@ if (isset($_POST["correo"])) {
 </head>
 
 <!--<body onload='document.getElementById("señala").classList.add("bu")'>-->
+
 <body>
-    <form class="formulario <?php if($c==false){echo 'error';} ?>" method="post" id="form">
-        <div id="form-items">
-            <input type="text" name="correo" placeholder="Correo" required><br><br>
-            <input type="password" name="pass" placeholder="Contraseña" id="pass" required><br><br>
-            <input type="password" name="pass_r" placeholder="Confirmar contraseña" id="pass_r" required><br><br>
-        </div>
-        <div id="register-boton">
-            <button type="action" onclick="submit()">Registrarse</button>
-        </div>
-    </form>
+    <div class="form-holder">
+        <form class="formulario <?php if ($c == false) {
+                                    echo 'error';
+                                } ?>" method="post" id="form">
+            <div id="form-items">
+                <input type="text" name="correo" placeholder="Correo" required><br><br>
+                <input type="password" name="pass" placeholder="Contraseña" id="pass" required><br><br>
+                <input type="password" name="pass_r" placeholder="Confirmar contraseña" id="pass_r" required><br><br>
+            </div>
+            <div id="register-boton">
+                <button type="action" onclick="submit()">Registrarse</button>
+            </div>
+        </form>
+    </div>
+
     <img id="señala" class="susto" src="./señalar.png">
 </body>
 <script>

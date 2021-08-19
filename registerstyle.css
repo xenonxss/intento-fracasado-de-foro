@@ -3,26 +3,34 @@
     --colorfondo: #131B23;
 }
 
-*{
+* {
     font-family: 'Space Grotesk', sans-serif;
     overflow: hidden;
 }
 
 body {
     background-color: var(--colorfondo);
+    margin: 0px;
 }
 
-.formulario {
+.form-holder {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
     background-color: #E9F1F7;
     padding: 20px;
     border-radius: 20px;
-    z-index: 2; 
+    z-index: 2;
     opacity: 1;
-    
 }
 
 .formulario button {
@@ -49,7 +57,7 @@ body {
 
 .register-boton {}
 
-.susto{
+.susto {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -58,75 +66,78 @@ body {
     opacity: 0;
 }
 
-.bu{
+.bu {
     animation: bu 150s both;
 }
-@keyframes bu{
-    0%{
-        transform:scale(0), translate(-50%, -50%);
+
+@keyframes bu {
+    0% {
+        transform: scale(0), translate(-50%, -50%);
     }
-    100%{
+    100% {
         transform: scale(10);
     }
 }
 
 .error {
     -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-            animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
+
 @-webkit-keyframes shake-horizontal {
     0%,
     100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
     10%,
     30%,
     50%,
     70% {
-      -webkit-transform: translateX(-10px);
-              transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
     }
     20%,
     40%,
     60% {
-      -webkit-transform: translateX(10px);
-              transform: translateX(10px);
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
     }
     80% {
-      -webkit-transform: translateX(8px);
-              transform: translateX(8px);
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
     }
     90% {
-      -webkit-transform: translateX(-8px);
-              transform: translateX(-8px);
+        -webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
     }
-  }
-  @keyframes shake-horizontal {
+}
+
+@keyframes shake-horizontal {
     0%,
     100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
     10%,
     30%,
     50%,
     70% {
-      -webkit-transform: translateX(-10px);
-              transform: translateX(-10px);
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
     }
     20%,
     40%,
     60% {
-      -webkit-transform: translateX(10px);
-              transform: translateX(10px);
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
     }
     80% {
-      -webkit-transform: translateX(8px);
-              transform: translateX(8px);
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
     }
     90% {
-      -webkit-transform: translateX(-8px);
-              transform: translateX(-8px);
+        -webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
     }
-  }
+}
