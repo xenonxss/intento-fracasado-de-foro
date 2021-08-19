@@ -38,7 +38,8 @@ if (isset($_POST["correo"])) {
         $ahora = time();
 
         $sql = "SELECT * FROM `users` WHERE `correo`='$correo';";
-        if (mysqli_query($link, $sql)){
+        $do = mysqli_query($link, $sql);
+        if ($do->num_rows > 0){
             echo 'che pibe, ya estas registrado';
 
         }
