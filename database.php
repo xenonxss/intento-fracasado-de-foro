@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "foroxs";
+$database = "foroxss";
 $username = "root";
 $password = "";
 // Create connection
