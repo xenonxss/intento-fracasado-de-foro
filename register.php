@@ -3,9 +3,9 @@
 ?>
 
 <form action="" method="post" id="form">
-    <input type="text" name="nombre">
-    <input type="password" name="pass" id="pass">
-    <input type="password" name="pass_r" id="pass_r">
+    <input type="text" name="nombre"><br><br>
+    <input type="password" name="pass" id="pass"><br><br>
+    <input type="password" name="pass_r" id="pass_r"><br><br>
     <button type="action" onclick="submit()">Registrarse</button>
 </form>
 
