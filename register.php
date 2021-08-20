@@ -1,5 +1,10 @@
 <?php
 $c = true;
+$claveerror = true;
+$correoerror = true;
+$logMsgStyleRed = "<p style='color:red; text-align:center; margin-top: 10%'>";
+$logMsgStyle = "<p style='color:black; text-align:center; margin-top: 10%'>";
+
 include("database.php");
 if (isset($_GET["token"])) {
     $ahora = time();
@@ -11,11 +16,11 @@ if (isset($_GET["token"])) {
         $sql = "UPDATE `users` SET `verify` = '1' WHERE `users`.`token` = '$token';";
 
         if (mysqli_query($link, $sql)) {
-            echo "Correctamente registrado y verificado!";
-            $sql = "UPDATE `users` SET `sincedate` = '$ahora' WHERE `users`.`token` = '$token';";
+            echo $logMsgStyle . "Correctamente registrado y verificado!";
 
+            $sql = "UPDATE `users` SET `sincedate` = '$ahora' WHERE `users`.`token` = '$token';";
             if (mysqli_query($link, $sql)) {
-                echo 'si';
+                echo('');
             } else {
                 echo mysqli_error($link);
             }
@@ -38,7 +43,6 @@ if (isset($_POST["correo"])) {
         $find2 = strpos($email, '.');
         return ($find1 !== false && $find2 !== false && $find2 > $find1);
     }
-
     if (checkEmail($correo)) {
         $c = true;
         if ($clave == $clave_r) {
@@ -48,20 +52,27 @@ if (isset($_POST["correo"])) {
             $sql = "SELECT * FROM `users` WHERE `correo`='$correo';";
             $do = mysqli_query($link, $sql);
             if ($do->num_rows > 0) {
-                echo '<script>alert("Ya hay un usuario con este correo.")</script>';
-            } else {
+                echo $logMsgStyleRed . 'Ya hay un usuario con este correo.';
+
+            } 
+            else
+            {
                 $sql = "INSERT INTO `users` (`id`, `user`, `correo`, `password`, `token`, `lastonline`) VALUES (NULL, '$correo', '$correo', '$clave_encriptada', '$token', '$ahora');";
-                if (mysqli_query($link, $sql)) {
-                    if (enviarmail("Registrate en PORNHUB!", $correo, "Nah es coña, regitrate aqui <a href='http://localhost/foroxs/register.php?token=$token'>Pincha aqui :)</a>")) {
+                if (mysqli_query($link, $sql)) 
+                {
+                    if (enviarmail("Verifica tu cuenta!", $correo, "Entrando al enlace y listo. <a href='http://localhost/foroxs/register.php?token=$token'>Pincha aqui :)</a>"))
+                    {
+                        echo $logMsgStyle . "Usuario registrado! Tienes que verificar tu mail...";
+                        exit;
                     }
-                    echo "Usuario registrado! Tienes que verificar tu mail...";
-                    exit;
                 }
             }
         }
     } else {
-        echo 'el correo no es valido';
+        
+        echo $logMsgStyleRed . 'El correo no es valido.</p>';
         $c = false;
+        $correoerror = false;
     }
 }
 ?>
@@ -82,12 +93,12 @@ if (isset($_POST["correo"])) {
                                     echo 'error';
                                 } ?>" method="post" id="form">
             <div id="form-items">
-                <input type="text" name="correo" placeholder="Correo" required><br><br>
+                <input class="<?php if($correoerror == false){echo 'correoerror';} ?>" type="text" name="correo" placeholder="Correo" required><br><br>
                 <input type="password" name="pass" placeholder="Contraseña" id="pass" required><br><br>
-                <input type="password" name="pass_r" placeholder="Confirmar contraseña" id="pass_r" required><br><br>
+                <input class="<?php if($claveerror == false){echo 'correoerror';} ?>" type="password" name="pass_r" placeholder="Confirmar contraseña" id="pass_r" required><br><br>
             </div>
             <div id="register-boton">
-                <button type="action" onclick="submit()">Registrarse</button>
+                <button type="action" onclick="presubmit()">Registrarse</button>
             </div>
         </form>
     </div>
@@ -95,9 +106,17 @@ if (isset($_POST["correo"])) {
     <img id="señala" class="susto" src="./señalar.png">
 </body>
 <script>
-    function submit() {
+    function presubmit(){
         if (document.getElementById("pass").value == document.getElementById("pass_r").value) {
-            document.getElementById("form").submit();
+            submit()
         }
+        else{
+            <?php
+                $claveerror = false;
+            ?>
+        }
+    }
+    function submit() {
+            document.getElementById("form").submit();
     }
 </script>

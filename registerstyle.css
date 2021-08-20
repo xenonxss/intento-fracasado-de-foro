@@ -44,6 +44,11 @@ body {
     cursor: pointer;
 }
 
+.log{
+    color:aliceblue;
+    text-align: center;
+}
+
 .formulario input {
     font-size: 30px;
     padding: 5px;
@@ -78,6 +83,22 @@ body {
         transform: scale(10);
     }
 }
+
+.correoerror{
+    animation: error 2s 5;
+}
+@keyframes error{
+    0%{
+        border-color: var(--secundario);
+    }
+    50%{
+        border-color: red;
+    }
+    100%{
+        border-color: var(--secundario);
+    }
+}
+
 
 .error {
     -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
