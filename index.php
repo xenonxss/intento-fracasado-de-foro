@@ -1,35 +1,53 @@
 <?php
-
+    include("database.php");
+   
+    $sql = "SELECT * FROM `chatmensajes`";
+    $resultado = mysqli_query($link, $sql);
+    $resultadocheck = mysqli_num_rows($resultado);
+    
+    if ($resultadocheck > 0){
+        while($row = mysqli_fetch_assoc($resultado)){
+            echo $row['mensaje'];
+            echo "<br>";
+        }
+    }
 ?>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<title>Chat - Customer Module</title>
-<link type="text/css" rel="stylesheet" href="indexstyle.css" />
+    <title>Forox chat</title>
+    <link type="text/css" rel="stylesheet" href="indexstyle.css" />
 </head>
  
-<div id="wrapper">
+<div>
   <div id="menu">
-        <p class="welcome">Welcome, <b></b></p>
-        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+        <p class="welcome">Forox private chat, </p>
+        <p class="logout"><a id="exit" href="#">Salir</a></p>
         <div style="clear:both"></div>
     </div>
      
     <div id="chatbox"></div>
-     
-    <form name="message" action="">
-        <input name="usermsg" type="text" id="usermsg" size="63" />
-        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+    
+    <form id="chat" name="chat" method="POST">
+        <input name="subirmensaje" type="text" id="usermsg" size="63" />
+        <input name="subirboton" type="submit"  id="submitmsg" value="Enviar" onclick="enviar()" />
     </form>
 </div>
 
 <script type="text/javascript">
-// jQuery Document
-$(document).ready(function(){
- 
-});
+    function enviar(){
+        document.getElementById("").submit();
+        <?php
+            $mensaje = $_POST['subirmensaje'];
+            $sql = "INSERT INTO `chatmensajes` (`autor`, `mensaje`) VALUES ('guest', '$mensaje');";
+            mysqli_query($link, $sql);
+            ?>
+            window.location.reload()
+            document.getElementById("subirmensaje").remove
+            <?php
+        ?>
+    }
+
 </script>
 </body>
 </html>
