@@ -1,5 +1,5 @@
 <?php
-
+include("auth.php");
 $autor = 'webmaster';
 
 

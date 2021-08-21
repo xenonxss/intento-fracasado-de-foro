@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <head>
     <title>Bienvenido a foroxss</title>
     <link rel="stylesheet" href="./registerstyle.css">

@@ -1,65 +1,68 @@
-.webchat{
-    height: 100%;
-    border:1px solid rgb(0, 0, 0);
+body {
+    margin: 0px;
 }
 
-.barra-navegacion{
+.webchat {
+    height: 100%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.barra-navegacion {
     font-size: 150%;
     color: rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
     border-bottom: none;
 }
 
-    .box{
-        width: 59%;
-        left: 20%; top: 15%;
-        border:1px solid rgb(0, 0, 0);
-        position: absolute;
+.box {
+    width: 59%;
+    left: 20%;
+    top: 15%;
+    border: 1px solid rgb(0, 0, 0);
+    position: absolute;
+    overflow: scroll;
+    height: 600px;
+    overflow-x: hidden;
+}
 
-        overflow:scroll; height:600px;
-        overflow-x: hidden;
-        
-    }
+.boxform {
+    width: 59%;
+    height: 60px;
+    border: 1px solid rgb(0, 0, 0);
+    border-top: none;
+    position: absolute;
+    top: 88%;
+    left: 20%;
+}
 
-    .boxform{
-        width: 59%; height: 60px;
+.formulario {
+    position: absolute;
+    top: 17%;
+    left: 1%;
+}
 
-        border:1px solid rgb(0, 0, 0);
-        border-top: none;
-        position: absolute;
-        top:88%; left: 20%;
-    }
+.msgbox {
+    width: 850px;
+    height: 40px;
+    border: none;
+    border: solid 1px rgb(0, 0, 0);
+    border-radius: 10px;
+}
 
-        .formulario{
-            position: absolute;
-            top: 17%; left: 1%;
-            
-        }
+.msgbutton {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border: solid 1px rgb(0, 0, 0);
+    border-radius: 10px;
+}
 
-    .msgbox{
-        width: 850px; height: 40px;
-
-        border: none;
-        border:solid 1px rgb(0, 0, 0);
-        border-radius: 10px;
-    }
-
-    .msgbutton{
-        width: 150px;
-        height: 40px;
-
-        border: none;
-        border:solid 1px rgb(0, 0, 0);
-        border-radius: 10px;
-    }
-
-.mensaje{
+.mensaje {
     font-family: 'Roboto', sans-serif;
-    height: 60px; width: 98%;
-
+    height: 60px;
+    width: 98%;
     margin-left: 10px;
     margin-top: 10px;
     border: none;
-    border:solid 1px rgb(0, 0, 0);
-    
+    border: solid 1px rgb(0, 0, 0);
 }
