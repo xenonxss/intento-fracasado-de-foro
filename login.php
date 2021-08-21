@@ -1,5 +1,24 @@
 <?php
-
+if(isset($_POST["correo"])){
+    $correo = $_POST["correo"];
+    $pass = $_POST["pass"];
+    $sql = "SELECT * FROM usuarios WHERE correo = '$correo'";
+    $do = mysqli_query($link, $sql);
+    //si existe
+    if($do>0){
+        $user = mysqli_fetch_assoc($do);
+        if(password_verify($pass, $user["password"])){
+            //si la contraseña es valida
+            session_start();
+            $_SESSION["userid"] = $user["id"];
+            header("location: chat.php");
+        }else{
+            //si la contraseña no es valida
+        }
+    }else{
+        //si no existe hacer algo
+    }
+}
 ?>
 
 
