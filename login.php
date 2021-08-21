@@ -15,9 +15,11 @@ if(isset($_POST["correo"])){
             header("location: chat.php");
         }else{
             //si la contraseña no es valida
+            echo "clave no valida";
         }
     }else{
         //si no existe hacer algo
+        echo "user no existe";
     }
 }
 ?>
