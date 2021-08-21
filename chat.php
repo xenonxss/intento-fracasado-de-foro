@@ -4,7 +4,7 @@ $autor = 'webmaster';
 
 
 
-    include("database.php");
+    include_once("database.php");
 
     #subir mensajes
     if(isset($_POST['subirmensaje'])){
