@@ -3,7 +3,7 @@ include('database.php');
 if(isset($_POST["correo"])){
     $correo = $_POST["correo"];
     $pass = $_POST["pass"];
-    $sql = "SELECT * FROM usuarios WHERE correo = '$correo'";
+    $sql = "SELECT * FROM users WHERE correo = '$correo'";
     $do = mysqli_query($link, $sql);
     //si existe
     if($do>0){
