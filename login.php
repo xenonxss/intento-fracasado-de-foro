@@ -1,4 +1,5 @@
 <?php
+include('database.php');
 if(isset($_POST["correo"])){
     $correo = $_POST["correo"];
     $pass = $_POST["pass"];
