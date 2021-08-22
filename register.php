@@ -4,7 +4,16 @@ $claveerror = true;
 $correoerror = true;
 $logMsgStyleRed = "<p style='color:red; text-align:center; margin-top: 10%'>";
 $logMsgStyle = "<p style='color:black; text-align:center; margin-top: 10%'>";
-
+function generateRandomString($length = 10)
+{
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $charactersLength = strlen($characters);
+      $randomString = '';
+      for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+      }
+      return $randomString;
+}
 include("database.php");
 if (isset($_GET["token"])) {
     $ahora = time();
