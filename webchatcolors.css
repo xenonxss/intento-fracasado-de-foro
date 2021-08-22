@@ -1,6 +1,6 @@
 :root{
-    --mensaje-background: #7EA8BE;
-    --mensaje-background-hover: #608fa8;
-    --mensaje-contenido-color: black;
+    --mensaje-background: #FAFAFF;
+    --mensaje-background-hover: #EEF0F2;
+    --mensaje-contenido-color: #1C1C1C;
     --webchat-background:#7EA8BE;
 }

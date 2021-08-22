@@ -61,14 +61,16 @@ include_once("database.php");
         }
     ?>
     </div>
-    <div class="boxform">
-        <div class="formulario">
-            <input name="subirmensaje" type="text" class="msgbox" id="msgbox" size="63" required />
-            <input name="subirboton" type="submit" class="msgbutton" id="msgbutton" value="Enviar" onclick="enviar()" />
-        </div>
-    </div>
-
+    
+        
+  
 </div>
+<div class="boxform">
+            <div class="formulario">
+                <input name="subirmensaje" type="text" class="msgbox" id="msgbox" size="63" required />
+                <input name="subirboton" type="submit" class="msgbutton" id="msgbutton" value="Enviar" onclick="enviar()" />
+            </div>
+        </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
     function enviar() {

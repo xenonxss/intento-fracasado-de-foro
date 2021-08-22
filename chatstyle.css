@@ -15,10 +15,13 @@ body {
     overflow-y: auto;
     background-color: var(--webchat-background);
     position: absolute;
-    top: 10%;
-    left: 20%;
+    top: 5%;
+    left: 19%;
     width: 70%;
-    height: 80%;
+    height: 92%;
+    overflow: scroll;
+    overflow-y:visible;
+    overflow-x: hidden;
 }
 
 .barra-navegacion {
@@ -38,11 +41,12 @@ body {
 }
 
 .boxform {
-    width: 100%;
-    height: 60px;
-    border-top: none;
+    background-color: var(--webchat-background);
+    width: 70%;
+    height: 51px;
     position: absolute;
-    bottom: 20px;
+    left: 19%;
+    top: 93%;
 }
 
 .formulario {
@@ -51,15 +55,16 @@ body {
 }
 
 .msgbox {
-    height: 40px;
+    height: 25px;
+    width: 75%;
     border: none;
-    border: solid 1px rgb(0, 0, 0);
+    
     border-radius: 10px;
 }
 
 .msgbutton {
     width: 150px;
-    height: 40px;
+    height: 30px;
     border: none;
     border: solid 1px rgb(0, 0, 0);
     border-radius: 10px;
