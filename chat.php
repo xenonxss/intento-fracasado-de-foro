@@ -25,7 +25,7 @@ include_once("database.php");
 <head>
     <title>Forox chat</title>
     <link type="text/css" rel="stylesheet" href="chatstyle.css" />
-
+    <link type="text/css" rel="stylesheet" href="./webchatcolors.css"/>
     <link type="text/css" rel="stylesheet" href="./msgstyle.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +34,7 @@ include_once("database.php");
 </head>
 <body>
 <div class="webchat">
-    <div class="barra-navegacion">
-        <nav class="nav-elementos">
-        </nav>
-    </div>
+    
 
     <div class="box" id="chatbox">
         <?php

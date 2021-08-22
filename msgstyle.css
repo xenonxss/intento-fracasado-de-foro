@@ -1,14 +1,20 @@
+@import url(webchatcolors.css);
+
+/*
+    ARRIBA COLORES
+*/
+
 .mensaje {
     font-family: 'Roboto', sans-serif;
     height: 60px;
     width: calc(100% - 40px);
     margin-left: 10px;
     padding: 3px;
-    background-color: #ECEBE4;
+    background-color: var(--mensaje-background);
     
 }
 .mensaje:hover{
-    background-color: #DADDD8;
+    background-color: var(--mensaje-background-hover);
     
 }
 
@@ -26,7 +32,7 @@
 }
 
 .msgcontent{
-    color: black;
+    color: var(--mensaje-contenido-color);
     position: relative;
     bottom: 68%;
     left: 8%;
