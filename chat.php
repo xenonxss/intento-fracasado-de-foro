@@ -139,6 +139,12 @@ include_once("database.php");
                 actualizarchat();
             }, 500);
         };
+        var input = document.getElementById("msgbox");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                enviar();
+            }
+        });
     </script>
 </body>
 
