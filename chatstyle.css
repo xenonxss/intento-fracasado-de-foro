@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    background-color: #1C1C1C;
 }
 
 .webchat {
@@ -53,17 +54,7 @@ body {
     border-radius: 10px;
 }
 
-.mensaje {
-    font-family: 'Roboto', sans-serif;
-    height: 60px;
-    width: calc(100% - 40px);
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 20px;
-    padding: 10px;
-    border: none;
-    border: solid 1px rgb(0, 0, 0);
-}
+
 
 .error {
     -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;

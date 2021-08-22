@@ -18,16 +18,16 @@ include_once("database.php");
 //$resultado = mysqli_query($link, $sql);
 //$resultadocheck = mysqli_num_rows($resultado); 
 
-$stylemensajes = "mensajes";
-
 
 ?>
 
 <html>
-
 <head>
     <title>Forox chat</title>
     <link type="text/css" rel="stylesheet" href="chatstyle.css" />
+
+    <link type="text/css" rel="stylesheet" href="./msgstyle.css"/>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -45,13 +45,24 @@ $stylemensajes = "mensajes";
         $resultadocheck = mysqli_num_rows($resultado);
         if ($resultadocheck > 0) {
             while ($row = mysqli_fetch_assoc($resultado)) {
-        ?><div class="mensaje"> <?php
-                                echo "<a class=" . $stylemensajes . ">(" . date('Y/m/d H:i', $row['time']) . ") " . $row['autor'] . ": " . $row['mensaje'] . "</a>";
-                                echo "<br>";
-                                ?></div><?php
-                                    }
-                                }
-                                        ?>
+        ?>      <div class="mensaje">
+                <?php
+                    //foto de prueba
+                    $profilepicsrc = "https://i.imgflip.com/4e9b7m.jpg";
+                    ?><div class='msgprofilepicbox'><?php
+                        echo "<img class='msgprofilepic' src=" . $profilepicsrc . ">";
+                    ?></div>
+                    <div class="msgcontent"><?php
+                        echo "<a class=msgautor>". $row['autor'] . "</a>" . "<a class=msgtime>" . " " . date('m/d H:i',$row['time']) . "</a>";
+                        echo "<br>";
+                        echo "<a class=msgbody" . ">" . $row['mensaje'] . "</a>";
+                        echo "<br>";
+                    ?></div>
+                </div>
+    <?php
+            }
+        }
+    ?>
     </div>
     <div class="boxform">
         <div class="formulario">
