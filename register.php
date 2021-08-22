@@ -69,11 +69,13 @@ if (isset($_POST["correo"])) {
                 $sql = "INSERT INTO `users` (`id`, `user`, `correo`, `password`, `token`, `lastonline`) VALUES (NULL, '$correo', '$correo', '$clave_encriptada', '$token', '$ahora');";
                 if (mysqli_query($link, $sql)) 
                 {
-                    if (enviarmail("Verifica tu cuenta!", $correo, "Entrando al enlace y listo. <a href='http://localhost/foroxs/register.php?token=$token'>Pincha aqui :)</a>"))
+                    if (enviarmail("Verifica tu cuenta!", $correo, "Entrando al enlace y listo. <a href='https://foroxss.cpsoftware.es/register.php?token=$token'>Pincha aqui :)</a>"))
                     {
                         echo $logMsgStyle . "Usuario registrado! Tienes que verificar tu mail...";
                         exit;
                     }
+                }else{
+                    echo mysqli_error($link);
                 }
             }
         }
