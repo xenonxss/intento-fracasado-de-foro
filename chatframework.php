@@ -17,18 +17,18 @@ function sendchat($chat = "", $mensaje = "", $autor = "desconocido")
         if ($resultadocheck > 0) {
             while ($row = mysqli_fetch_assoc($resultado)) {
                 ?>      <div class="mensaje">
-                        <?php
-                            //foto de prueba
-                            $profilepicsrc = "https://i.imgflip.com/4e9b7m.jpg";
-                            ?><div class='msgprofilepicbox'><?php
-                                echo "<img class='msgprofilepic' src=" . $profilepicsrc . ">";
-                            ?></div>
-                            <div class="msgcontent"><?php
-                                echo "<a class=msgautor>". $row['autor'] . "</a>" . "<a class=msgtime>" . " " . date('m/d H:i',$row['time']) . "</a>";
-                                echo "<br>";
-                                echo "<a class=msgbody" . ">" . $row['mensaje'] . "</a>";
-                                echo "<br>";
-                            ?></div>
+                        
+                            <?php
+                                ?><div class='msgprofilepicbox'><?php
+                                    echo "<img class='msgprofilepic' src=" . $row['profilepic'] . ">";
+                                ?></div>
+                                <div class="msgcontent"><?php
+                                    echo "<a class=msgautor>". $row['autor'] . "</a>" . "<a class=msgtime>" . " " . date('m/d H:i',$row['time']) . "</a>";
+                                    echo "<br>";
+                                    echo "<a class=msgbody" . ">" . $row['mensaje'] . "</a>";
+                                    echo "<br>";
+                                ?></div>
+                      
                         </div>
             <?php
                     }

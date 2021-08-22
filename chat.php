@@ -32,6 +32,7 @@ include_once("database.php");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
+<body>
 <div class="webchat">
     <div class="barra-navegacion">
         <nav class="nav-elementos">
@@ -46,19 +47,18 @@ include_once("database.php");
         if ($resultadocheck > 0) {
             while ($row = mysqli_fetch_assoc($resultado)) {
         ?>      <div class="mensaje">
-                <?php
-                    //foto de prueba
-                    $profilepicsrc = "https://i.imgflip.com/4e9b7m.jpg";
-                    ?><div class='msgprofilepicbox'><?php
-                        echo "<img class='msgprofilepic' src=" . $profilepicsrc . ">";
-                    ?></div>
-                    <div class="msgcontent"><?php
-                        echo "<a class=msgautor>". $row['autor'] . "</a>" . "<a class=msgtime>" . " " . date('m/d H:i',$row['time']) . "</a>";
-                        echo "<br>";
-                        echo "<a class=msgbody" . ">" . $row['mensaje'] . "</a>";
-                        echo "<br>";
-                    ?></div>
-                </div>
+               
+                <div class='msgprofilepicbox'><?php
+                            echo "<img class='msgprofilepic' src=" . $row['profilepic'] . ">";
+                        ?></div>
+                        <div class="msgcontent"><?php
+                            echo "<a class=msgautor>". $row['autor'] . "</a>" . "<a class=msgtime>" . " " . date('m/d H:i',$row['time']) . "</a>";
+                            echo "<br>";
+                            echo "<a class=msgbody" . ">" . $row['mensaje'] . "</a>";
+                            echo "<br>";
+                        ?></div>
+                    </div>
+               
     <?php
             }
         }

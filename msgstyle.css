@@ -3,7 +3,7 @@
     height: 60px;
     width: calc(100% - 40px);
     margin-left: 10px;
-    padding: 10px;
+    padding: 3px;
     background-color: #ECEBE4;
     
 }
@@ -14,21 +14,22 @@
 
 .msgautor{
     font-size: 1.20em;
-    position: relative;
+   
     font: bold 16px/30px Georgia, serif;
+    
 
 }
 
 .msgprofilepicbox{
     position: relative;
-    top: 15%;
+    top: 13%;
 }
 
 .msgcontent{
     color: black;
     position: relative;
-    bottom: 62%;
-    left: 6%;
+    bottom: 68%;
+    left: 8%;
     line-height: 1.5;
     font-family: "Segoe UI", Georgia, Serif;
 }
@@ -38,6 +39,7 @@
     height: 75%;
     position:relative;
     border-radius: 100%;
+    left: 1%;
 
 }
 
