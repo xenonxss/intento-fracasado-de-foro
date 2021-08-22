@@ -1,6 +1,6 @@
 <?php
 
-echo exec("git pull", $out);
+echo exec("whoami", $out);
 echo "Updateado...";
 var_dump($out);
 
