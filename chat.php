@@ -1,23 +1,6 @@
 <?php
 include("auth.php");
-$autor = 'webmaster';
-
-
-
 include_once("database.php");
-
-#subir mensajes
-
-
-#imprimir mensajes
-
-//NO HAGAS ESTO NUNCA @xenonxss
-//NUNCA DECLARES UN QUERY EN EL TOP DE LA PAGINA PARA USARLO MAS ABAJO, DECLARALO DONDE LO VAYAS A USAR
-
-//$sql = "SELECT * FROM `chatmensajes`";
-//$resultado = mysqli_query($link, $sql);
-//$resultadocheck = mysqli_num_rows($resultado); 
-
 
 ?>
 
@@ -27,16 +10,41 @@ include_once("database.php");
     <link type="text/css" rel="stylesheet" href="chatstyle.css" />
     <link type="text/css" rel="stylesheet" href="./webchatcolors.css"/>
     <link type="text/css" rel="stylesheet" href="./msgstyle.css"/>
+    <link type="text/css" rel="stylesheet" href="./navheadchat.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
-<body>
-<div class="webchat">
-    
+<body onload="mueveReloj()">
+<div class="nav-head">
+    <div class="nav-items">
+        <?php
+            $sql = "SELECT * FROM `users`";
+            $resultado = mysqli_query($link, $sql);
+            $row = mysqli_fetch_assoc($resultado)
+        ?>
+        <a class="bienvenida">Bienvenid@ a Forox <?php echo $row['user'] . "!"; ?></a>
+        <a class="info" href="#info">Sobre Forox</a>
+        <a class="reloj" id="reloj"></a>
+        <script>
+            function mueveReloj(){
+                momentoActual = new Date()
+                hora = momentoActual.getHours()
+                minuto = momentoActual.getMinutes()
+                segundo = momentoActual.getSeconds()
 
+                horaImprimible = hora + " : " + minuto + " : " + segundo
+
+                document.getElementById('reloj').textContent = horaImprimible 
+                setTimeout("mueveReloj()",1000)
+            }
+        </script>
+    </div>
+</div>
+<div class="webchat">
     <div class="box" id="chatbox">
+        <h3>.................Que haces aquí?............................................................. No querrás descubrir algo de lo que puedas arrepentirte.</h3>
         <?php
         $sql = "SELECT * FROM `chatmensajes`";
         $resultado = mysqli_query($link, $sql);

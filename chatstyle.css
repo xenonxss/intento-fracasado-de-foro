@@ -6,7 +6,9 @@
 
 body {
     margin: 0px;
+    overflow:hidden;
 }
+
 
 .webchat {
     height: calc(100% - 90px);
@@ -15,10 +17,10 @@ body {
     overflow-y: auto;
     background-color: var(--webchat-background);
     position: absolute;
-    top: 5%;
+    top: 46px;
     left: 19%;
     width: 70%;
-    height: 92%;
+    height: 87%;
     overflow: scroll;
     overflow-y:visible;
     overflow-x: hidden;
@@ -36,12 +38,11 @@ body {
     top: 8%;
     right: 41px;
     width: 95%;
-   
     
 }
 
 .boxform {
-    background-color: var(--webchat-background);
+    background-color: var(--form-background);
     width: 70%;
     height: 51px;
     position: absolute;
@@ -56,18 +57,23 @@ body {
 
 .msgbox {
     height: 25px;
-    width: 75%;
+    width: 60%;
     border: none;
-    
     border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    right: 39%;
+
 }
 
 .msgbutton {
     width: 150px;
     height: 30px;
     border: none;
-    border: solid 1px rgb(0, 0, 0);
     border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    right: 10%;   
 }
 
 
