@@ -6,7 +6,7 @@ if (!isset($link)) {
 function updatechat()
 {
     include("database.php");
-    $sql = "SELECT * FROM `chatmensajes`";
+    $sql = "SELECT * FROM `chatmensajes` ORDER BY id desc";
     $resultado = mysqli_query($link, $sql);
     $resultadocheck = mysqli_num_rows($resultado);
     if ($resultadocheck > 0) {
