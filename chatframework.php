@@ -34,7 +34,7 @@ function updatechat()
 function sendchat($chat = "", $mensaje = "", $autor = "desconocido")
 {
     $stylemensajes = "mensajes";
-
+    $mensaje = str_replace(["<", ">"], '🌹', $mensaje);
     include("database.php");
     $time = time(); //El tiempo guardalo como una variable en UNIX, mucho mejor
     $sql = "INSERT INTO `chatmensajes` (`time`, `autor`, `mensaje`) VALUES ('$time', '$autor', '$mensaje');";
