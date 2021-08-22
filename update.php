@@ -1,6 +1,6 @@
 <?php
 
-exec("git pull");
+echo shell_exec("git pull");
 echo "Updateado...";
 
 ?>
